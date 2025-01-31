@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+ENV/
+
+# Data and Logs
+Data/*/
+logs/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.bak
+*.tmp
+
+# Keep example data structure but ignore contents
+!Data/
+Data/*
+!Data/example_company/
+
+.codegpt
+Pipfile
+Pipfile.lock

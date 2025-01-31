@@ -1,0 +1,17 @@
+{
+    "config": {
+        "base_path": "Data",
+        "companies": [
+            "example_company"
+        ]
+    },
+    "required_folders": [
+        "cleaned",
+        "Backward citation"
+    ],
+    "expected_files": [
+        "flag_summary.json",
+        "pure_f_summary.json",
+        "di_summary.json"
+    ]
+}
