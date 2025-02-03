@@ -1,7 +1,7 @@
 # Patent Innovation Analysis Pipeline
 
 ## Overview
-This project analyzes patent innovation patterns using disruption indices based on citation networks. The methodology follows Park et al. (2023)'s disruption index framework.
+This project analyzes patent innovation patterns using disruption indices based on citation networks. The methodology follows Funk et al. (2017)'s disruption index framework.
 
 ## Project Structure
 ```
