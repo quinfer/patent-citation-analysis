@@ -1,0 +1,152 @@
+---
+title: Patent Innovation Disruption Analysis
+author: Jeffery PhD Team
+date: "31/01/2025"
+format: 
+  pdf:
+    toc: true
+    toc-depth: 1
+    code-fold: true
+---
+
+## Executive Summary
+
+This report examines patent innovation disruption metrics across multiple companies and time periods, revealing significant temporal patterns in innovation and providing insights into the evolution of technological advancement. Understanding these metrics is crucial for assessing economic growth, as innovation is a key driver of productivity and competitiveness.
+
+## Data Overview
+
+The dataset comprises patent metrics from multiple companies spanning from 1836 to 2024, including:
+
+- Disruption Index (DI)
+- Modified Disruption Index (MDI)
+- Component scores (j5, i5, k5)
+- Network metrics
+
+These metrics offer insights into the economic impact of technological innovations and the extent to which they disrupt existing markets.
+
+## Key Findings
+
+### 1. Component Relationships
+
+The correlation analysis between key components reveals interesting patterns:
+
+![Component Correlation Matrix](Data/summary/figures/component_correlations.png)
+
+**Key observations**:
+
+- Strong correlation between j5 and k5 scores (0.5)
+- i5 score shows constant value (0)
+- Perfect self-correlations as expected
+
+The strong correlation between j5 and k5 scores suggests a relationship between the novelty of a patent and its subsequent influence on future innovations. This relationship is economically significant, as patents that both build upon existing knowledge and contribute to future developments can enhance a firm's competitive advantage and market value.
+
+### 2. Temporal Trends
+
+The time series analysis shows evolving patterns in innovation disruption:
+
+![Disruption Indices Over Time](Data/summary/figures/di_time_series.png)
+
+```{r}
+#| label: tbl-recent-trends
+#| tbl-cap: "Recent Trends in Disruption Metrics (2015-2024)"
+
+recent_trends <- data.frame(
+  Year = c(2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024),
+  DI = c(0.4115, 0.3997, 0.3622, 0.3336, 0.3156, 0.2807, 0.2573, 0.2303, 0.0728, 0.0000),
+  MDI = c(1.2292, 1.1934, 1.0811, 0.9941, 0.9387, 0.8316, 0.7634, 0.6903, 0.2184, 0.0000),
+  j5_score = c(0.9022, 0.9040, 0.8686, 0.8226, 0.7976, 0.7137, 0.6515, 0.5656, 0.1400, 0.0000),
+  k5_score = c(0.3323, 0.2951, 0.2179, 0.1782, 0.1492, 0.1284, 0.1203, 0.1253, 0.0784, 0.0000),
+  total_citations = c(73859, 54457, 36101, 20824, 14867, 8884, 5852, 5233, 4722, 568),
+  network_density = c(0.2508, 0.2503, 0.1799, 0.1454, 0.1529, 0.1551, 0.1863, 0.2515, 0.1980, 0.0000)
+)
+
+# Format numbers to 4 decimal places and add thousands separator for citations
+recent_trends$DI <- format(round(recent_trends$DI, 4), nsmall = 4)
+recent_trends$MDI <- format(round(recent_trends$MDI, 4), nsmall = 4)
+recent_trends$j5_score <- format(round(recent_trends$j5_score, 4), nsmall = 4)
+recent_trends$k5_score <- format(round(recent_trends$k5_score, 4), nsmall = 4)
+recent_trends$network_density <- format(round(recent_trends$network_density, 4), nsmall = 4)
+recent_trends$total_citations <- format(recent_trends$total_citations, big.mark = ",")
+
+knitr::kable(recent_trends,
+             col.names = c("Year", "DI", "MDI", "J5 Score", "K5 Score", "Total Citations", "Network Density"),
+             align = c('r', 'r', 'r', 'r', 'r', 'r', 'r'))
+```
+
+**Key observations**:
+
+- Both DI and MDI exhibit a declining trend in recent years.
+
+The observed decline in disruption metrics may indicate a shift towards more incremental innovations rather than groundbreaking ones. Economically, this trend could suggest a maturing technological landscape where firms focus on refining existing technologies to maintain market share, potentially leading to increased market consolidation and reduced competition.
+
+### 3. Distribution Analysis
+
+The distribution of disruption metrics provides insights into the nature of innovation:
+
+![Distribution of Modified Disruption Index](Data/summary/figures/mdi_distribution.png)
+
+![Distribution of Disruption Index](Data/summary/figures/di_distribution.png)
+
+**Key observations**:
+
+- Both DI and MDI distributions are right-skewed, indicating that highly disruptive innovations are relatively rare.
+
+The rarity of highly disruptive innovations underscores the economic challenges firms face in achieving breakthrough advancements. Such innovations often require substantial investment in research and development with uncertain returns, influencing firms' strategic decisions regarding resource allocation.
+
+### 4. Statistical Summary
+
+```{r}
+#| label: tbl-summary-stats
+#| tbl-cap: "Summary Statistics of Key Metrics"
+
+summary_stats <- data.frame(
+  Metric = c("Disruption Index", "Modified DI", "j5 Score", "k5 Score"),
+  Mean = c(0.497, 1.471, 0.897, 0.595),
+  Std = c(0.166, 0.527, 0.258, 0.315)
+)
+knitr::kable(summary_stats)
+```
+
+**Key observations**:
+
+- The average MDI is higher than the DI, suggesting that the modified index captures additional dimensions of innovation disruption.
+
+The higher mean of the MDI compared to the DI suggests that the modified index may account for broader economic impacts of innovation, potentially including factors such as market adoption rates and the diffusion of new technologies.
+
+## Key Insights
+
+1. **Temporal Evolution**: Innovation disruption shows a clear declining trend in recent years, particularly post-2015. This may reflect a shift towards incremental improvements rather than radical innovations, possibly due to increased market saturation or higher barriers to entry for breakthrough technologies.
+
+2. **Component Dynamics**: The relationship between j5 and k5 scores suggests a consistent pattern in how innovations build upon and diverge from previous work. Economically, this indicates that firms are strategically balancing the exploitation of existing knowledge with the exploration of new technological avenues to optimize their innovation outcomes.
+
+3. **Distribution Patterns**: Both disruption metrics show right-skewed distributions, indicating that highly disruptive innovations are relatively rare. This rarity highlights the economic value and competitive advantage conferred by such innovations, as they can create new markets or significantly alter existing ones.
+
+## Methodological Considerations
+
+- **Data Completeness**: The analysis accounts for varying sample sizes across different time periods, acknowledging that data from recent years may be incomplete due to patent processing delays. This consideration is crucial for accurate economic forecasting and policy formulation.
+
+- **Network Density**: Network density calculations consider the evolving nature of citation networks, which is essential for understanding the diffusion of innovations and their economic impact.
+
+- **Citation Patterns**: Analyzing citation patterns helps identify the influence of specific patents on subsequent technological developments, providing insights into the economic significance of particular innovations.
+
+## Conclusions
+
+The analysis reveals a complex landscape of technological innovation where:
+
+1. **Declining Disruption**: The observed decline in disruption metrics suggests a shift towards more incremental innovation. This trend may have significant economic implications, potentially affecting long-term productivity growth and market dynamics.
+
+2. **Strategic Innovation**: The consistent relationship between component scores indicates that firms are strategically managing their innovation activities, balancing the refinement of existing technologies with the pursuit of new, potentially disruptive innovations.
+
+3. **Rarity of Breakthroughs**: The right-skewed distribution of disruption metrics highlights the rarity of highly disruptive innovations, underscoring the substantial economic value and competitive advantage they can provide.
+
+Understanding these patterns is crucial for policymakers and business leaders aiming to foster an environment that encourages both incremental and breakthrough innovations, thereby promoting sustained economic growth and technological advancement.
+
+## References
+
+1. Funk, Russell J., and Owen-Smith, Jason. "A Dynamic Network Measure of Technological Change." *Management Science* 63.3 (2017): 791-817. [https://doi.org/10.1287/mnsc.2015.2366](https://doi.org/10.1287/mnsc.2015.2366)
+
+2. Wu, Lingfei, Dashun Wang, and James A. Evans. "Large Teams Develop and Small Teams Disrupt Science and Technology." *Nature* 566.7744 (2019): 378-382. [https://doi.org/10.1038/s41586-019-0941-9](https://doi.org/10.1038/s41586-019-0941-9)
+
+3. Uzzi, Brian, et al. "Atypical Combinations and Scientific Impact." *Science* 342.6157 (2013): 468-472. [https://doi.org/10.1126/science.1240474](https://doi.org/10.1126/science.1240474)
+
+These references provide foundational insights into the measurement of technological change, the dynamics of innovation within teams, and the impact of novel combinations on scientific progress. 

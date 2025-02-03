@@ -1,33 +1,72 @@
+# Data directories
+Data/raw/
+Data/processed/
+Data/summary/
+!Data/summary/.gitkeep
+
+# Log files
+logs/
+*.log
+
+# Output files
+*.parquet
+*.csv
+*.json
+!requirements.txt
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 .Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
 venv/
 ENV/
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Data and Logs
-Data/*/
-logs/*.log
-
-# IDE
-.vscode/
+# IDE specific files
 .idea/
+.vscode/
 *.swp
 *.swo
-
-# OS
 .DS_Store
-Thumbs.db
+.ipynb_checkpoints
+*.ipynb
 
-# Temporary files
-*.bak
-*.tmp
+# Quarto output
+_site/
+/.quarto/
+*_files/
+*.html
+*.pdf
 
-# Keep example data structure but ignore contents
-!Data/
-Data/*
-!Data/example_company/
+# Keep specific files
+!Data/README.md
+!scripts/README.md
+!.gitignore
+!LICENSE
+!README.md
 
 .codegpt
 Pipfile

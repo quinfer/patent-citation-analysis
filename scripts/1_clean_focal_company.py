@@ -173,11 +173,16 @@ class FocalCompanyCleaner:
         'required': [
             'citing_patent_id',
             'forward_citation_count',
-            'forward_cited_numbers'
+            'forward_cited_numbers',
+            'forward_cited_dates',
+            'backward_cited_numbers',
+            'backward_cited_dates',
+            'grant_date',
+            'ipc_code'
         ],
         'optional': [
             'application_date',
-            'grant_date',
+            'assignee_name',
             'other_metadata'
         ]
     }
@@ -322,7 +327,6 @@ class FocalCompanyCleaner:
     def _clean_dataframe(self, df: pd.DataFrame) -> pd.DataFrame:
         """Clean the DataFrame with detailed error handling"""
         try:
-            # Make a copy to avoid modifying the original
             df = df.copy()
             
             # Clean column names
@@ -359,6 +363,50 @@ class FocalCompanyCleaner:
                     self.logger.error(f"Sample of forward_cited_numbers:\n{df['forward_cited_numbers'].head()}")
                     raise
             
+            # Add new cleaning steps for citation analysis
+            if 'forward_cited_dates' in df.columns:
+                df['forward_cited_dates'] = df['forward_cited_dates'].apply(
+                    lambda x: ', '.join(str(x).split(', ')) if pd.notnull(x) else ''
+                )
+            
+            if 'backward_cited_numbers' in df.columns:
+                df['backward_cited_numbers'] = df['backward_cited_numbers'].apply(
+                    lambda x: ', '.join(str(x).split(', ')) if pd.notnull(x) else ''
+                )
+            
+            if 'backward_cited_dates' in df.columns:
+                df['backward_cited_dates'] = df['backward_cited_dates'].apply(
+                    lambda x: ', '.join(str(x).split(', ')) if pd.notnull(x) else ''
+                )
+
+            # Clean and standardize IPC codes
+            if 'ipc_code' in df.columns:
+                df['ipc_code'] = df['ipc_code'].str.extract(r'([A-H]\d+[A-Z]\d+)', expand=False)
+                df['ipc_section'] = df['ipc_code'].str[0]  # Extract section (A-H)
+
+            # Convert dates to datetime
+            date_columns = ['grant_date', 'application_date']
+            for col in date_columns:
+                if col in df.columns:
+                    df[col] = pd.to_datetime(df[col], errors='coerce')
+
+            # Add citation count validation
+            if 'forward_citation_count' in df.columns:
+                # Verify forward_citation_count matches actual citations
+                df['actual_forward_count'] = df['forward_cited_numbers'].str.count(',') + 1
+                df.loc[df['forward_cited_numbers'] == '', 'actual_forward_count'] = 0
+                
+                # Log discrepancies
+                discrepancies = (df['forward_citation_count'] != df['actual_forward_count'])
+                if discrepancies.any():
+                    self.logger.warning(
+                        f"Found {discrepancies.sum()} rows with citation count discrepancies"
+                    )
+                    
+                # Use actual count
+                df['forward_citation_count'] = df['actual_forward_count']
+                df.drop('actual_forward_count', axis=1, inplace=True)
+
             return df
             
         except Exception as e:
@@ -515,10 +563,10 @@ class ProcessingStats:
 
 def main():
     """Main execution function"""
-    # Load cleaned schema
-    schema_path = Path('workflow_schema_cleaned.json')
+    # Load schema - changed from workflow_schema_cleaned.json to workflow_schema.json
+    schema_path = Path('workflow_schema.json')
     if not schema_path.exists():
-        raise FileNotFoundError("Cleaned schema file not found. Run clean_workflow.py first.")
+        raise FileNotFoundError("Schema file not found: workflow_schema.json")
     
     # Initialize cleaner and consolidated report
     cleaner = FocalCompanyCleaner(schema_path)

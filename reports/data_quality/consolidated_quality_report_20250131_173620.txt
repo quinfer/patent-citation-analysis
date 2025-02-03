@@ -1,0 +1,3179 @@
+Consolidated Data Quality Report
+Generated on: 2025-01-31 17:36:20.354035
+Total Companies Processed: 100
+================================================================================
+
+1. Overall Statistics:
+Total Rows (Original): 542,834
+Total Rows (Cleaned): 543,110
+Row Reduction: -0.05%
+
+2. Company-by-Company Summary:
+
+abbott:
+----------------------------------------
+Rows:
+  Original: 845
+  Cleaned: 845
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 845
+  backward_cited_numbers: 24 → 0
+  forward_cited_numbers: 334 → 0
+  backward_cited_dates: 24 → 0
+  forward_cited_dates: 334 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 2 → 2
+  grant_lag_days: 2 → 2
+
+akamai:
+----------------------------------------
+Rows:
+  Original: 686
+  Cleaned: 686
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 686
+  backward_cited_numbers: 3 → 0
+  forward_cited_numbers: 222 → 0
+  backward_cited_dates: 3 → 0
+  forward_cited_dates: 222 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+alien:
+----------------------------------------
+Rows:
+  Original: 25
+  Cleaned: 25
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 25
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 9 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 9 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+align:
+----------------------------------------
+Rows:
+  Original: 1,208
+  Cleaned: 1,208
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,208
+  backward_cited_numbers: 14 → 0
+  forward_cited_numbers: 390 → 0
+  backward_cited_dates: 14 → 0
+  forward_cited_dates: 390 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 8 → 8
+  grant_lag_days: 8 → 8
+
+amd:
+----------------------------------------
+Rows:
+  Original: 3,835
+  Cleaned: 3,835
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 3,835
+  backward_cited_numbers: 85 → 0
+  forward_cited_numbers: 1,623 → 0
+  backward_cited_dates: 85 → 0
+  forward_cited_dates: 1,623 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 11 → 11
+  grant_lag_days: 11 → 11
+
+amo:
+----------------------------------------
+Rows:
+  Original: 49
+  Cleaned: 49
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 49
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 16 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 16 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+analog_devices:
+----------------------------------------
+Rows:
+  Original: 2,330
+  Cleaned: 2,330
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,330
+  backward_cited_numbers: 41 → 0
+  forward_cited_numbers: 654 → 0
+  backward_cited_dates: 41 → 0
+  forward_cited_dates: 654 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 6 → 6
+  grant_lag_days: 6 → 6
+
+aol:
+----------------------------------------
+Rows:
+  Original: 478
+  Cleaned: 478
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 478
+  backward_cited_numbers: 5 → 0
+  forward_cited_numbers: 127 → 0
+  backward_cited_dates: 5 → 0
+  forward_cited_dates: 127 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+apple:
+----------------------------------------
+Rows:
+  Original: 39,564
+  Cleaned: 39,564
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 39,564
+  backward_cited_numbers: 528 → 0
+  forward_cited_numbers: 13,033 → 0
+  backward_cited_dates: 528 → 0
+  forward_cited_dates: 13,033 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 113 → 113
+  grant_lag_days: 113 → 113
+
+applied_materials:
+----------------------------------------
+Rows:
+  Original: 10,080
+  Cleaned: 10,080
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 10,080
+  backward_cited_numbers: 141 → 0
+  forward_cited_numbers: 4,388 → 0
+  backward_cited_dates: 141 → 0
+  forward_cited_dates: 4,388 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 37 → 37
+  grant_lag_days: 37 → 37
+
+aspen:
+----------------------------------------
+Rows:
+  Original: 54
+  Cleaned: 54
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 54
+  backward_cited_numbers: 4 → 0
+  forward_cited_numbers: 9 → 0
+  backward_cited_dates: 4 → 0
+  forward_cited_dates: 9 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+atandt:
+----------------------------------------
+Rows:
+  Original: 1,419
+  Cleaned: 1,419
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,419
+  backward_cited_numbers: 22 → 0
+  forward_cited_numbers: 689 → 0
+  backward_cited_dates: 22 → 0
+  forward_cited_dates: 689 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 2 → 2
+  grant_lag_days: 2 → 2
+
+aware:
+----------------------------------------
+Rows:
+  Original: 177
+  Cleaned: 177
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 177
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 45 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 45 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+baxter:
+----------------------------------------
+Rows:
+  Original: 1,146
+  Cleaned: 1,146
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,146
+  backward_cited_numbers: 27 → 0
+  forward_cited_numbers: 423 → 0
+  backward_cited_dates: 27 → 0
+  forward_cited_dates: 423 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+biodesix:
+----------------------------------------
+Rows:
+  Original: 59
+  Cleaned: 59
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 59
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 18 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 18 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+boeing:
+----------------------------------------
+Rows:
+  Original: 18,189
+  Cleaned: 18,189
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 18,189
+  backward_cited_numbers: 170 → 0
+  forward_cited_numbers: 7,545 → 0
+  backward_cited_dates: 170 → 0
+  forward_cited_dates: 7,545 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 30 → 30
+  grant_lag_days: 30 → 30
+
+borg_warner:
+----------------------------------------
+Rows:
+  Original: 1,774
+  Cleaned: 1,774
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,774
+  backward_cited_numbers: 20 → 0
+  forward_cited_numbers: 725 → 0
+  backward_cited_dates: 20 → 0
+  forward_cited_dates: 725 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 2 → 2
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 7 → 7
+  grant_lag_days: 7 → 7
+
+bp:
+----------------------------------------
+Rows:
+  Original: 384
+  Cleaned: 384
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 384
+  backward_cited_numbers: 20 → 0
+  forward_cited_numbers: 140 → 0
+  backward_cited_dates: 20 → 0
+  forward_cited_dates: 140 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+cadence:
+----------------------------------------
+Rows:
+  Original: 1,405
+  Cleaned: 1,405
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,405
+  backward_cited_numbers: 6 → 0
+  forward_cited_numbers: 389 → 0
+  backward_cited_dates: 6 → 0
+  forward_cited_dates: 389 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+cantor:
+----------------------------------------
+Rows:
+  Original: 85
+  Cleaned: 85
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 85
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 33 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 33 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+capital_system:
+----------------------------------------
+Rows:
+  Original: 5
+  Cleaned: 5
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 5
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 2 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 2 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+carrefour:
+----------------------------------------
+Rows:
+  Original: 1,806
+  Cleaned: 1,806
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,806
+  backward_cited_numbers: 27 → 0
+  forward_cited_numbers: 486 → 0
+  backward_cited_dates: 27 → 0
+  forward_cited_dates: 486 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+cdw:
+----------------------------------------
+Rows:
+  Original: 37
+  Cleaned: 37
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 37
+  backward_cited_numbers: 2 → 0
+  forward_cited_numbers: 23 → 0
+  backward_cited_dates: 2 → 0
+  forward_cited_dates: 23 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+chevron:
+----------------------------------------
+Rows:
+  Original: 2,213
+  Cleaned: 2,213
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,213
+  backward_cited_numbers: 48 → 0
+  forward_cited_numbers: 887 → 0
+  backward_cited_dates: 48 → 0
+  forward_cited_dates: 887 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 4 → 4
+  grant_lag_days: 4 → 4
+
+ciena:
+----------------------------------------
+Rows:
+  Original: 1,676
+  Cleaned: 1,676
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,676
+  backward_cited_numbers: 13 → 0
+  forward_cited_numbers: 475 → 0
+  backward_cited_dates: 13 → 0
+  forward_cited_dates: 475 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+cognex:
+----------------------------------------
+Rows:
+  Original: 509
+  Cleaned: 509
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 509
+  backward_cited_numbers: 4 → 0
+  forward_cited_numbers: 188 → 0
+  backward_cited_dates: 4 → 0
+  forward_cited_dates: 188 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+commvault:
+----------------------------------------
+Rows:
+  Original: 1,576
+  Cleaned: 1,576
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,576
+  backward_cited_numbers: 6 → 0
+  forward_cited_numbers: 233 → 0
+  backward_cited_dates: 6 → 0
+  forward_cited_dates: 233 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 2 → 2
+  grant_lag_days: 2 → 2
+
+conocophillips:
+----------------------------------------
+Rows:
+  Original: 844
+  Cleaned: 844
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 844
+  backward_cited_numbers: 8 → 0
+  forward_cited_numbers: 318 → 0
+  backward_cited_dates: 8 → 0
+  forward_cited_dates: 318 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+csc:
+----------------------------------------
+Rows:
+  Original: 259
+  Cleaned: 259
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 259
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 81 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 81 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+dexcom:
+----------------------------------------
+Rows:
+  Original: 1,039
+  Cleaned: 1,039
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,039
+  backward_cited_numbers: 8 → 0
+  forward_cited_numbers: 232 → 0
+  backward_cited_dates: 8 → 0
+  forward_cited_dates: 232 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 5 → 5
+  grant_lag_days: 5 → 5
+
+digi:
+----------------------------------------
+Rows:
+  Original: 119
+  Cleaned: 119
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 119
+  backward_cited_numbers: 2 → 0
+  forward_cited_numbers: 30 → 0
+  backward_cited_dates: 2 → 0
+  forward_cited_dates: 30 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+digimarc:
+----------------------------------------
+Rows:
+  Original: 1,015
+  Cleaned: 1,015
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,015
+  backward_cited_numbers: 10 → 0
+  forward_cited_numbers: 217 → 0
+  backward_cited_dates: 10 → 0
+  forward_cited_dates: 217 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+digital_envoy:
+----------------------------------------
+Rows:
+  Original: 10
+  Cleaned: 10
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 10
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 1 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 1 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+ebay:
+----------------------------------------
+Rows:
+  Original: 4,072
+  Cleaned: 4,072
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 4,072
+  backward_cited_numbers: 41 → 0
+  forward_cited_numbers: 1,077 → 0
+  backward_cited_dates: 41 → 0
+  forward_cited_dates: 1,077 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 4 → 4
+  grant_lag_days: 4 → 4
+
+emc:
+----------------------------------------
+Rows:
+  Original: 3,811
+  Cleaned: 3,811
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 3,811
+  backward_cited_numbers: 34 → 0
+  forward_cited_numbers: 526 → 0
+  backward_cited_dates: 34 → 0
+  forward_cited_dates: 526 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+equifax:
+----------------------------------------
+Rows:
+  Original: 125
+  Cleaned: 125
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 125
+  backward_cited_numbers: 3 → 0
+  forward_cited_numbers: 28 → 0
+  backward_cited_dates: 3 → 0
+  forward_cited_dates: 28 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+fmr:
+----------------------------------------
+Rows:
+  Original: 372
+  Cleaned: 372
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 372
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 121 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 121 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+fortinet:
+----------------------------------------
+Rows:
+  Original: 1,163
+  Cleaned: 1,163
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,163
+  backward_cited_numbers: 23 → 0
+  forward_cited_numbers: 408 → 0
+  backward_cited_dates: 23 → 0
+  forward_cited_dates: 408 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 2 → 2
+  grant_lag_days: 2 → 2
+
+gec:
+----------------------------------------
+Rows:
+  Original: 29,160
+  Cleaned: 29,160
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 29,160
+  backward_cited_numbers: 313 → 0
+  forward_cited_numbers: 9,311 → 0
+  backward_cited_dates: 313 → 0
+  forward_cited_dates: 9,311 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 39 → 39
+  grant_lag_days: 39 → 39
+
+gentex:
+----------------------------------------
+Rows:
+  Original: 1,013
+  Cleaned: 1,013
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,013
+  backward_cited_numbers: 5 → 0
+  forward_cited_numbers: 370 → 0
+  backward_cited_dates: 5 → 0
+  forward_cited_dates: 370 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 5 → 5
+  grant_lag_days: 5 → 5
+
+goldman:
+----------------------------------------
+Rows:
+  Original: 213
+  Cleaned: 213
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 213
+  backward_cited_numbers: 4 → 0
+  forward_cited_numbers: 98 → 0
+  backward_cited_dates: 4 → 0
+  forward_cited_dates: 98 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+google:
+----------------------------------------
+Rows:
+  Original: 32,600
+  Cleaned: 32,874
+  Reduction: -0.84%
+
+Null Values (Original → Cleaned):
+  citing_patent_id,citing_auth,citing_number,citing_date,patent_title,abstract_truncated,ipc_code,backward_cited_numbers,forward_cited_numbers,backward_cited_dates,forward_cited_dates,backward_citation_count,forward_citation_count,application_id,application_number,company_name,person_standardized_name,psn_sector,person_address,apply_date,granted,granted_date,grant_lag_days: 0 → 0
+
+harmonic:
+----------------------------------------
+Rows:
+  Original: 156
+  Cleaned: 156
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 156
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 88 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 88 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+harris:
+----------------------------------------
+Rows:
+  Original: 1,114
+  Cleaned: 1,114
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,114
+  backward_cited_numbers: 15 → 0
+  forward_cited_numbers: 335 → 0
+  backward_cited_dates: 15 → 0
+  forward_cited_dates: 335 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+hologic:
+----------------------------------------
+Rows:
+  Original: 592
+  Cleaned: 592
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 592
+  backward_cited_numbers: 11 → 0
+  forward_cited_numbers: 199 → 0
+  backward_cited_dates: 11 → 0
+  forward_cited_dates: 199 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+ibm:
+----------------------------------------
+Rows:
+  Original: 128,374
+  Cleaned: 128,374
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 128,374
+  backward_cited_numbers: 1,680 → 0
+  forward_cited_numbers: 54,319 → 0
+  backward_cited_dates: 1,680 → 0
+  forward_cited_dates: 54,319 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 2 → 2
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 131 → 131
+  grant_lag_days: 131 → 131
+
+igt:
+----------------------------------------
+Rows:
+  Original: 3,058
+  Cleaned: 3,058
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 3,058
+  backward_cited_numbers: 29 → 0
+  forward_cited_numbers: 1,105 → 0
+  backward_cited_dates: 29 → 0
+  forward_cited_dates: 1,105 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 9 → 9
+  grant_lag_days: 9 → 9
+
+immersion:
+----------------------------------------
+Rows:
+  Original: 1,154
+  Cleaned: 1,154
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,154
+  backward_cited_numbers: 20 → 0
+  forward_cited_numbers: 289 → 0
+  backward_cited_dates: 20 → 0
+  forward_cited_dates: 289 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+initio:
+----------------------------------------
+Rows:
+  Original: 5
+  Cleaned: 5
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 5
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 0 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 0 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+intel:
+----------------------------------------
+Rows:
+  Original: 46,359
+  Cleaned: 46,359
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 46,359
+  backward_cited_numbers: 979 → 0
+  forward_cited_numbers: 17,601 → 0
+  backward_cited_dates: 979 → 0
+  forward_cited_dates: 17,601 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 1 → 1
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 80 → 80
+  grant_lag_days: 80 → 80
+
+interdigital:
+----------------------------------------
+Rows:
+  Original: 902
+  Cleaned: 902
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 902
+  backward_cited_numbers: 6 → 0
+  forward_cited_numbers: 428 → 0
+  backward_cited_dates: 6 → 0
+  forward_cited_dates: 428 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+interface:
+----------------------------------------
+Rows:
+  Original: 36
+  Cleaned: 36
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 36
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 11 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 11 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 2 → 2
+  grant_lag_days: 2 → 2
+
+john_bean:
+----------------------------------------
+Rows:
+  Original: 157
+  Cleaned: 157
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 157
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 71 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 71 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+johnson:
+----------------------------------------
+Rows:
+  Original: 2,571
+  Cleaned: 2,573
+  Reduction: -0.08%
+
+Null Values (Original → Cleaned):
+  citing_patent_id,citing_auth,citing_number,citing_date,patent_title,abstract_truncated,ipc_code,backward_cited_numbers,forward_cited_numbers,backward_cited_dates,forward_cited_dates,backward_citation_count,forward_citation_count,application_id,application_number,company_name,person_standardized_name,psn_sector,person_address,apply_date,granted,granted_date,grant_lag_days: 0 → 0
+
+jpmorgan:
+----------------------------------------
+Rows:
+  Original: 1,692
+  Cleaned: 1,692
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,692
+  backward_cited_numbers: 11 → 0
+  forward_cited_numbers: 902 → 0
+  backward_cited_dates: 11 → 0
+  forward_cited_dates: 902 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 11 → 11
+  grant_lag_days: 11 → 11
+
+juniper:
+----------------------------------------
+Rows:
+  Original: 4,247
+  Cleaned: 4,247
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 4,247
+  backward_cited_numbers: 39 → 0
+  forward_cited_numbers: 1,409 → 0
+  backward_cited_dates: 39 → 0
+  forward_cited_dates: 1,409 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 9 → 9
+  grant_lag_days: 9 → 9
+
+kodak:
+----------------------------------------
+Rows:
+  Original: 2,425
+  Cleaned: 2,425
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,425
+  backward_cited_numbers: 66 → 0
+  forward_cited_numbers: 936 → 0
+  backward_cited_dates: 66 → 0
+  forward_cited_dates: 936 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+lam:
+----------------------------------------
+Rows:
+  Original: 2,956
+  Cleaned: 2,956
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,956
+  backward_cited_numbers: 32 → 0
+  forward_cited_numbers: 904 → 0
+  backward_cited_dates: 32 → 0
+  forward_cited_dates: 904 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 9 → 9
+  grant_lag_days: 9 → 9
+
+landisandgyr:
+----------------------------------------
+Rows:
+  Original: 103
+  Cleaned: 103
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 103
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 35 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 35 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+lockheed_martin:
+----------------------------------------
+Rows:
+  Original: 2,653
+  Cleaned: 2,653
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,653
+  backward_cited_numbers: 26 → 0
+  forward_cited_numbers: 908 → 0
+  backward_cited_dates: 26 → 0
+  forward_cited_dates: 908 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+lord:
+----------------------------------------
+Rows:
+  Original: 195
+  Cleaned: 195
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 195
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 80 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 80 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+lsi:
+----------------------------------------
+Rows:
+  Original: 2,417
+  Cleaned: 2,417
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,417
+  backward_cited_numbers: 46 → 0
+  forward_cited_numbers: 594 → 0
+  backward_cited_dates: 46 → 0
+  forward_cited_dates: 594 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+mastercard:
+----------------------------------------
+Rows:
+  Original: 2,927
+  Cleaned: 2,927
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,927
+  backward_cited_numbers: 38 → 0
+  forward_cited_numbers: 1,409 → 0
+  backward_cited_dates: 38 → 0
+  forward_cited_dates: 1,409 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 12 → 12
+  grant_lag_days: 12 → 12
+
+medtronic:
+----------------------------------------
+Rows:
+  Original: 5,394
+  Cleaned: 5,394
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 5,394
+  backward_cited_numbers: 73 → 0
+  forward_cited_numbers: 1,826 → 0
+  backward_cited_dates: 73 → 0
+  forward_cited_dates: 1,826 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 12 → 12
+  grant_lag_days: 12 → 12
+
+meta:
+----------------------------------------
+Rows:
+  Original: 8,229
+  Cleaned: 8,229
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 8,229
+  backward_cited_numbers: 93 → 0
+  forward_cited_numbers: 2,591 → 0
+  backward_cited_dates: 93 → 0
+  forward_cited_dates: 2,591 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 10 → 10
+  grant_lag_days: 10 → 10
+
+microchip:
+----------------------------------------
+Rows:
+  Original: 1,376
+  Cleaned: 1,376
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,376
+  backward_cited_numbers: 8 → 0
+  forward_cited_numbers: 597 → 0
+  backward_cited_dates: 8 → 0
+  forward_cited_dates: 597 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 5 → 5
+  grant_lag_days: 5 → 5
+
+micron:
+----------------------------------------
+Rows:
+  Original: 24,576
+  Cleaned: 24,576
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 24,576
+  backward_cited_numbers: 500 → 0
+  forward_cited_numbers: 11,994 → 0
+  backward_cited_dates: 500 → 0
+  forward_cited_dates: 11,994 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 95 → 95
+  grant_lag_days: 95 → 95
+
+microsoft:
+----------------------------------------
+Rows:
+  Original: 10,656
+  Cleaned: 10,656
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 10,656
+  backward_cited_numbers: 141 → 0
+  forward_cited_numbers: 1,514 → 0
+  backward_cited_dates: 141 → 0
+  forward_cited_dates: 1,514 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+mitek:
+----------------------------------------
+Rows:
+  Original: 95
+  Cleaned: 95
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 95
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 25 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 25 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+netapp:
+----------------------------------------
+Rows:
+  Original: 2,716
+  Cleaned: 2,716
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,716
+  backward_cited_numbers: 24 → 0
+  forward_cited_numbers: 889 → 0
+  backward_cited_dates: 24 → 0
+  forward_cited_dates: 889 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+nielsen:
+----------------------------------------
+Rows:
+  Original: 2,576
+  Cleaned: 2,576
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,576
+  backward_cited_numbers: 21 → 0
+  forward_cited_numbers: 896 → 0
+  backward_cited_dates: 21 → 0
+  forward_cited_dates: 896 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 12 → 12
+  grant_lag_days: 12 → 12
+
+nvidia:
+----------------------------------------
+Rows:
+  Original: 4,079
+  Cleaned: 4,079
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 4,079
+  backward_cited_numbers: 73 → 0
+  forward_cited_numbers: 1,551 → 0
+  backward_cited_dates: 73 → 0
+  forward_cited_dates: 1,551 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 14 → 14
+  grant_lag_days: 14 → 14
+
+oracle:
+----------------------------------------
+Rows:
+  Original: 11,465
+  Cleaned: 11,465
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 11,465
+  backward_cited_numbers: 121 → 0
+  forward_cited_numbers: 3,956 → 0
+  backward_cited_dates: 121 → 0
+  forward_cited_dates: 3,956 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 29 → 29
+  grant_lag_days: 29 → 29
+
+paypal:
+----------------------------------------
+Rows:
+  Original: 3,567
+  Cleaned: 3,567
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 3,567
+  backward_cited_numbers: 49 → 0
+  forward_cited_numbers: 1,704 → 0
+  backward_cited_dates: 49 → 0
+  forward_cited_dates: 1,704 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 18 → 18
+  grant_lag_days: 18 → 18
+
+pepsico:
+----------------------------------------
+Rows:
+  Original: 416
+  Cleaned: 416
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 416
+  backward_cited_numbers: 11 → 0
+  forward_cited_numbers: 168 → 0
+  backward_cited_dates: 11 → 0
+  forward_cited_dates: 168 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+pitney_bowes:
+----------------------------------------
+Rows:
+  Original: 139
+  Cleaned: 139
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 139
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 60 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 60 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+progress_software:
+----------------------------------------
+Rows:
+  Original: 67
+  Cleaned: 67
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 67
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 32 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 32 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+quadgraphics:
+----------------------------------------
+Rows:
+  Original: 34
+  Cleaned: 34
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 34
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 17 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 17 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+qualcomm:
+----------------------------------------
+Rows:
+  Original: 45,192
+  Cleaned: 45,192
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 45,192
+  backward_cited_numbers: 1,244 → 0
+  forward_cited_numbers: 15,748 → 0
+  backward_cited_dates: 1,244 → 0
+  forward_cited_dates: 15,748 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 238 → 238
+  grant_lag_days: 238 → 238
+
+rambus:
+----------------------------------------
+Rows:
+  Original: 2,649
+  Cleaned: 2,649
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,649
+  backward_cited_numbers: 47 → 0
+  forward_cited_numbers: 1,153 → 0
+  backward_cited_dates: 47 → 0
+  forward_cited_dates: 1,153 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 10 → 10
+  grant_lag_days: 10 → 10
+
+raytheon:
+----------------------------------------
+Rows:
+  Original: 5,577
+  Cleaned: 5,577
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 5,577
+  backward_cited_numbers: 72 → 0
+  forward_cited_numbers: 2,316 → 0
+  backward_cited_dates: 72 → 0
+  forward_cited_dates: 2,316 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 12 → 12
+  grant_lag_days: 12 → 12
+
+ringcentral:
+----------------------------------------
+Rows:
+  Original: 389
+  Cleaned: 389
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 389
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 180 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 180 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+salesforce:
+----------------------------------------
+Rows:
+  Original: 999
+  Cleaned: 999
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 999
+  backward_cited_numbers: 21 → 0
+  forward_cited_numbers: 701 → 0
+  backward_cited_dates: 21 → 0
+  forward_cited_dates: 701 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+se_energy:
+----------------------------------------
+Rows:
+  Original: 1,451
+  Cleaned: 1,451
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,451
+  backward_cited_numbers: 8 → 0
+  forward_cited_numbers: 406 → 0
+  backward_cited_dates: 8 → 0
+  forward_cited_dates: 406 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+siemens:
+----------------------------------------
+Rows:
+  Original: 252
+  Cleaned: 252
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 252
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 83 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 83 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+snapon:
+----------------------------------------
+Rows:
+  Original: 615
+  Cleaned: 615
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 615
+  backward_cited_numbers: 2 → 0
+  forward_cited_numbers: 231 → 0
+  backward_cited_dates: 2 → 0
+  forward_cited_dates: 231 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+stmicroelectronics:
+----------------------------------------
+Rows:
+  Original: 1,464
+  Cleaned: 1,464
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,464
+  backward_cited_numbers: 28 → 0
+  forward_cited_numbers: 559 → 0
+  backward_cited_dates: 28 → 0
+  forward_cited_dates: 559 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+synopsys:
+----------------------------------------
+Rows:
+  Original: 2,080
+  Cleaned: 2,080
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 2,080
+  backward_cited_numbers: 32 → 0
+  forward_cited_numbers: 798 → 0
+  backward_cited_dates: 32 → 0
+  forward_cited_dates: 798 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+teradyne:
+----------------------------------------
+Rows:
+  Original: 285
+  Cleaned: 285
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 285
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 79 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 79 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+texas_instruments:
+----------------------------------------
+Rows:
+  Original: 16,429
+  Cleaned: 16,429
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 16,429
+  backward_cited_numbers: 274 → 0
+  forward_cited_numbers: 7,819 → 0
+  backward_cited_dates: 274 → 0
+  forward_cited_dates: 7,819 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 47 → 47
+  grant_lag_days: 47 → 47
+
+topcon:
+----------------------------------------
+Rows:
+  Original: 254
+  Cleaned: 254
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 254
+  backward_cited_numbers: 2 → 0
+  forward_cited_numbers: 97 → 0
+  backward_cited_dates: 2 → 0
+  forward_cited_dates: 97 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+unico:
+----------------------------------------
+Rows:
+  Original: 50
+  Cleaned: 50
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 50
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 10 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 10 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+universal_electronics:
+----------------------------------------
+Rows:
+  Original: 620
+  Cleaned: 620
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 620
+  backward_cited_numbers: 8 → 0
+  forward_cited_numbers: 348 → 0
+  backward_cited_dates: 8 → 0
+  forward_cited_dates: 348 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+verisign:
+----------------------------------------
+Rows:
+  Original: 571
+  Cleaned: 571
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 571
+  backward_cited_numbers: 4 → 0
+  forward_cited_numbers: 165 → 0
+  backward_cited_dates: 4 → 0
+  forward_cited_dates: 165 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 1 → 1
+  grant_lag_days: 1 → 1
+
+viasat:
+----------------------------------------
+Rows:
+  Original: 1,032
+  Cleaned: 1,032
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 1,032
+  backward_cited_numbers: 7 → 0
+  forward_cited_numbers: 339 → 0
+  backward_cited_dates: 7 → 0
+  forward_cited_dates: 339 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 3 → 3
+  grant_lag_days: 3 → 3
+
+visa:
+----------------------------------------
+Rows:
+  Original: 139
+  Cleaned: 139
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 139
+  backward_cited_numbers: 1 → 0
+  forward_cited_numbers: 60 → 0
+  backward_cited_dates: 1 → 0
+  forward_cited_dates: 60 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+vmware:
+----------------------------------------
+Rows:
+  Original: 7,221
+  Cleaned: 7,221
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 7,221
+  backward_cited_numbers: 99 → 0
+  forward_cited_numbers: 3,041 → 0
+  backward_cited_dates: 99 → 0
+  forward_cited_dates: 3,041 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 26 → 26
+  grant_lag_days: 26 → 26
+
+western_union:
+----------------------------------------
+Rows:
+  Original: 214
+  Cleaned: 214
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 214
+  backward_cited_numbers: 2 → 0
+  forward_cited_numbers: 82 → 0
+  backward_cited_dates: 2 → 0
+  forward_cited_dates: 82 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+xerox:
+----------------------------------------
+Rows:
+  Original: 8,433
+  Cleaned: 8,433
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 8,433
+  backward_cited_numbers: 178 → 0
+  forward_cited_numbers: 3,431 → 0
+  backward_cited_dates: 178 → 0
+  forward_cited_dates: 3,431 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 11 → 11
+  grant_lag_days: 11 → 11
+
+yubico:
+----------------------------------------
+Rows:
+  Original: 11
+  Cleaned: 11
+  Reduction: 0.00%
+
+Null Values (Original → Cleaned):
+  citing_patent_id: 0 → 0
+  citing_auth: 0 → 0
+  citing_number: 0 → 0
+  citing_date: 0 → 0
+  patent_title: 0 → 0
+  abstract_truncated: 0 → 0
+  ipc_code: 0 → 11
+  backward_cited_numbers: 0 → 0
+  forward_cited_numbers: 0 → 0
+  backward_cited_dates: 0 → 0
+  forward_cited_dates: 0 → 0
+  backward_citation_count: 0 → 0
+  forward_citation_count: 0 → 0
+  application_id: 0 → 0
+  application_number: 0 → 0
+  company_name: 0 → 0
+  person_standardized_name: 0 → 0
+  psn_sector: 0 → 0
+  person_address: 0 → 0
+  apply_date: 0 → 0
+  granted: 0 → 0
+  granted_date: 0 → 0
+  grant_lag_days: 0 → 0
+
+3. Cross-Company Analysis:
+
+Data Volume Distribution (Top 5):
+  ibm: 128,374 rows
+  intel: 46,359 rows
+  qualcomm: 45,192 rows
+  apple: 39,564 rows
+  google: 32,874 rows
+
+Quality Metrics (Average across companies):
+Average Duplicate Rate: 0.00%

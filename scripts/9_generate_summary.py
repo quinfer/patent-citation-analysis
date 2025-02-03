@@ -31,21 +31,15 @@ class SummaryGenerator:
         output_path: Directory for saving generated summaries and visualizations
     """
     
-    def __init__(self, schema_path: Path):
+    def __init__(self, base_path: Path = Path("Data")):
+        self.base_path = base_path
         # Setup logging
         self.logger = logging.getLogger(__name__)
+        Path("logs").mkdir(exist_ok=True)
         handler = logging.FileHandler('logs/summary_generation.log')
         handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
-        
-        # Load schema
-        with open(schema_path) as f:
-            self.schema = json.load(f)
-        
-        self.base_path = Path(self.schema['config']['base_path'])
-        self.output_path = self.base_path / 'summary'
-        self.output_path.mkdir(exist_ok=True)
         
     def generate_company_summary(self, company: str) -> Optional[Dict]:
         """
@@ -224,7 +218,7 @@ class SummaryGenerator:
             - top_companies_di.png
         """
         try:
-            plt.style.use('seaborn')
+            plt.style.use('default')  # Using default style instead of seaborn
             
             # Average DI Distribution
             plt.figure(figsize=(12, 6))
@@ -333,36 +327,162 @@ class SummaryGenerator:
         with open(self.output_path / 'summary_statistics.json', 'w') as f:
             json.dump(stats, f, indent=2)
 
-def main():
-    """Main execution function"""
-    # Load schema
-    schema_path = Path('workflow_schema_cleaned.json')
-    if not schema_path.exists():
-        raise FileNotFoundError("Cleaned schema file not found")
+    def create_panel_dataset(self) -> pd.DataFrame:
+        """Creates panel dataset from DI results."""
+        companies = [d.name for d in self.base_path.iterdir() 
+                    if d.is_dir() and not d.name.startswith('.')
+                    and d.name not in ['backup', 'summary']]
         
-    # Initialize generator
-    generator = SummaryGenerator(schema_path)
+        all_data = []
+        for company in tqdm(companies, desc="Creating panel dataset"):
+            try:
+                di_file = self.base_path / company / "disruption_index.json"
+                if not di_file.exists():
+                    continue
+                    
+                with open(di_file, 'r') as f:
+                    company_data = json.load(f)
+                
+                for year, data in company_data.items():
+                    row = {
+                        'company_name': company,
+                        'year': int(year),
+                        'disruption_index': data['disruption_index'],
+                        'modified_disruption_index': data['modified_disruption_index'],
+                        'j5_score': data['components']['j5_score'],
+                        'i5_score': data['components']['i5_score'],
+                        'k5_score': data['components']['k5_score'],
+                        'pure_f_score': data['metrics']['pure_f_score'],
+                        'total_citations': data['metrics']['total_citations'],
+                        'network_density': data['metrics']['network_density']
+                    }
+                    all_data.append(row)
+                    
+            except Exception as e:
+                self.logger.error(f"Error processing {company}: {str(e)}")
+                continue
+        
+        df = pd.DataFrame(all_data)
+        df = df.sort_values(['company_name', 'year'])
+        return df
+
+    def generate_visualizations(self, df: pd.DataFrame):
+        """Generates summary visualizations."""
+        # Filter out incomplete years (2024)
+        df_filtered = df[df['year'] < 2024].copy()
+        
+        output_dir = self.base_path / 'summary' / 'figures'
+        output_dir.mkdir(exist_ok=True, parents=True)
+        
+        # Set style
+        plt.style.use('default')
+        
+        # 1. DI Distribution (using filtered data)
+        plt.figure(figsize=(10, 6))
+        sns.histplot(data=df_filtered, x='disruption_index', bins=50)
+        plt.title('Distribution of Disruption Index (1836-2023)')
+        plt.xlabel('Disruption Index')
+        plt.ylabel('Count')
+        plt.savefig(output_dir / 'di_distribution.png', dpi=300, bbox_inches='tight')
+        plt.close()
+        
+        # 2. mDI Distribution (using filtered data)
+        plt.figure(figsize=(10, 6))
+        sns.histplot(data=df_filtered, x='modified_disruption_index', bins=50)
+        plt.title('Distribution of Modified Disruption Index (1836-2023)')
+        plt.xlabel('Modified Disruption Index')
+        plt.ylabel('Count')
+        plt.savefig(output_dir / 'mdi_distribution.png', dpi=300, bbox_inches='tight')
+        plt.close()
+        
+        # 3. Time series of average DI and mDI (using filtered data)
+        yearly_avg = df_filtered.groupby('year').agg({
+            'disruption_index': 'mean',
+            'modified_disruption_index': 'mean'
+        }).reset_index()
+        
+        plt.figure(figsize=(12, 6))
+        plt.plot(yearly_avg['year'], yearly_avg['disruption_index'], label='DI')
+        plt.plot(yearly_avg['year'], yearly_avg['modified_disruption_index'], label='mDI')
+        plt.title('Average Disruption Indices Over Time (1836-2023)')
+        plt.xlabel('Year')
+        plt.ylabel('Index Value')
+        plt.legend()
+        # Add grid for better readability
+        plt.grid(True, linestyle='--', alpha=0.7)
+        plt.savefig(output_dir / 'di_time_series.png', dpi=300, bbox_inches='tight')
+        plt.close()
+        
+        # 4. Component correlations (using filtered data)
+        plt.figure(figsize=(8, 8))
+        components = ['j5_score', 'i5_score', 'k5_score']
+        corr = df_filtered[components].corr()
+        sns.heatmap(corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
+        plt.title('Component Correlations (1836-2023)')
+        plt.savefig(output_dir / 'component_correlations.png', dpi=300, bbox_inches='tight')
+        plt.close()
+
+    def generate_summary(self):
+        """Generates comprehensive summary reports and visualizations."""
+        # Create panel dataset
+        df = self.create_panel_dataset()
+        
+        # Create output directory
+        output_dir = self.base_path / 'summary'
+        output_dir.mkdir(exist_ok=True)
+        
+        # Save panel data
+        df.to_parquet(output_dir / 'disruption_panel.parquet', index=False)
+        df.to_csv(output_dir / 'disruption_panel.csv', index=False)
+        
+        # Generate summary statistics
+        summary_stats = df.describe()
+        summary_stats.to_csv(output_dir / 'disruption_summary_stats.csv')
+        
+        # Generate yearly averages
+        yearly_avg = df.groupby('year').agg({
+            'disruption_index': 'mean',
+            'modified_disruption_index': 'mean',
+            'j5_score': 'mean',
+            'i5_score': 'mean',
+            'k5_score': 'mean',
+            'pure_f_score': 'mean',
+            'total_citations': 'mean',
+            'network_density': 'mean'
+        }).round(4)
+        
+        yearly_avg.to_csv(output_dir / 'yearly_averages.csv')
+        
+        # Generate visualizations
+        self.generate_visualizations(df)
+        
+        # Log completion
+        self.logger.info(f"Created summary with {len(df)} observations")
+        self.logger.info(f"Data spans years {df.year.min()} to {df.year.max()}")
+        self.logger.info(f"Includes {df.company_name.nunique()} companies")
+        
+        return df
+
+def main():
+    """Generate comprehensive summary."""
+    generator = SummaryGenerator()
+    df = generator.generate_summary()
     
-    # Generate full report
-    summary_df = generator.generate_full_report()
-    
-    if summary_df is not None:
-        print("\nSummary Generation Complete")
-        print("=" * 50)
-        print(f"Total companies processed: {len(summary_df)}")
-        print(f"Output directory: {generator.output_path}")
-        print("\nGenerated files:")
-        print("- complete_summary.csv")
-        print("- rankings_by_di.csv")
-        print("- rankings_by_pure_f.csv")
-        print("- rankings_by_citations.csv")
-        print("- summary_statistics.json")
-        print("\nVisualizations:")
-        print("- di_distribution.png")
-        print("- pure_f_vs_di.png")
-        print("- top_companies_di.png")
-    else:
-        print("\nError generating summary report")
+    print("\nSummary Generation Complete")
+    print("=" * 50)
+    print(f"Total observations: {len(df):,}")
+    print(f"Number of companies: {df.company_name.nunique():,}")
+    print(f"Year range: {df.year.min()} - {df.year.max()}")
+    print("\nOutput files created in Data/summary/:")
+    print("- disruption_panel.parquet")
+    print("- disruption_panel.csv")
+    print("- disruption_summary_stats.csv")
+    print("- yearly_averages.csv")
+    print("\nVisualizations created in Data/summary/figures/:")
+    print("- di_distribution.png")
+    print("- mdi_distribution.png")
+    print("- di_time_series.png")
+    print("- component_correlations.png")
 
 if __name__ == "__main__":
     main()

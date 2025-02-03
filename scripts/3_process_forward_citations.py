@@ -1,139 +1,160 @@
 import pandas as pd
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional
-import json
-from datetime import datetime
+from typing import List, Optional
 from tqdm import tqdm
 
 class ForwardCitationProcessor:
-    """Process forward citations from cleaned focal company data"""
+    """Process forward citations from focal company data"""
     
-    def __init__(self, schema_path: Path):
+    def __init__(self, base_path: Path = Path("Data")):
         # Setup logging
         self.logger = logging.getLogger(__name__)
+        Path("logs").mkdir(exist_ok=True)
         handler = logging.FileHandler('logs/forward_citations.log')
         handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
         
-        # Load schema
-        with open(schema_path) as f:
-            self.schema = json.load(f)
+        self.base_path = base_path
+
+    def get_companies(self) -> List[str]:
+        """Get list of companies from Data directory."""
+        return [d.name for d in self.base_path.iterdir() 
+                if d.is_dir() and not d.name.startswith('.')
+                and d.name not in ['backup_20250131', 'summary']]
+
+    def _get_citation_files(self, company: str) -> List[Path]:
+        """Get citation files for a company, checking both formats."""
+        citation_dir = self.base_path / company / "Forward citation"
         
-        self.base_path = Path(self.schema['config']['base_path'])
+        # First check for raw numbered files
+        raw_files = list(citation_dir.glob("[0-9]*_[0-9]*.csv"))
+        if raw_files:
+            return raw_files
         
-    def process_company_citations(self, company: str) -> Optional[pd.DataFrame]:
-        """Process forward citations for a single company"""
+        # If no raw files, check for consolidated file
+        consolidated_file = citation_dir / f"{company}_forward_citations.csv"
+        if consolidated_file.exists():
+            return [consolidated_file]
+        
+        return []
+
+    def process_citation_file(self, file_path: Path) -> Optional[pd.DataFrame]:
+        """Process a citation file from either format."""
         try:
-            # Load cleaned company data
-            input_file = self.base_path / company / f"{company}_cleaned.csv"
-            if not input_file.exists():
-                self.logger.error(f"Cleaned file not found for {company}")
+            # Check if this is a consolidated file by looking at the filename
+            is_consolidated = file_path.name.endswith('_forward_citations.csv')
+            
+            if is_consolidated:
+                # Read consolidated format (comma-separated)
+                df = pd.read_csv(
+                    file_path,
+                    dtype={
+                        'focal_patent': str,
+                        'citing_patent': str,
+                        'citation_date': str
+                    }
+                )
+                # Rename columns to match our standard format
+                df = df.rename(columns={
+                    'focal_patent': 'cited_patent_id',
+                    'citing_patent': 'citing_patent_id'
+                })
+            else:
+                # Read raw format (semicolon-separated)
+                df = pd.read_csv(
+                    file_path, 
+                    delimiter=';',
+                    dtype={
+                        'citing_patent_id': str,
+                        'citing_number': str,
+                        'forward_cited_number': str,
+                        'forward_cited_date': str
+                    },
+                    low_memory=False
+                )
+                
+                # Process raw format columns
+                if 'citing_patent_id' not in df.columns:
+                    df = df.rename(columns={'citing_number': 'cited_patent_id'})
+                df = df.rename(columns={
+                    'forward_cited_number': 'citing_patent_id',
+                    'forward_cited_date': 'citation_date'
+                })
+            
+            # Common processing for both formats
+            df['citation_date'] = pd.to_datetime(df['citation_date'], errors='coerce')
+            df['citing_patent_id'] = df['citing_patent_id'].astype(str)
+            df['cited_patent_id'] = df['cited_patent_id'].astype(str)
+            
+            # Select only required columns
+            required_cols = ['citing_patent_id', 'cited_patent_id', 'citation_date']
+            if not all(col in df.columns for col in required_cols):
+                self.logger.error(f"Missing required columns in {file_path}")
                 return None
                 
-            # Read with explicit dtypes
-            df = pd.read_csv(
-                input_file,
-                dtype={
-                    'citing_patent_id': str,
-                    'backward_cited_numbers': str,
-                    'backward_cited_dates': str,
-                    'forward_cited_numbers': str,
-                    'forward_cited_dates': str,
-                    'citing_number': str,
-                    'ipc_code': str,
-                },
-                low_memory=False
-            )
-            
-            # Extract forward citations
-            citations_df = self._extract_forward_citations(df, company)
-            
-            # Save processed citations
-            output_folder = self.base_path / company / "Forward citation"
-            output_folder.mkdir(exist_ok=True)
-            output_file = output_folder / f"{company}_forward_citations.csv"
-            citations_df.to_csv(output_file, index=False)
-            
-            self.logger.info(f"Processed {len(citations_df)} forward citations for {company}")
-            return citations_df
-            
-        except Exception as e:
-            self.logger.error(f"Error processing {company}: {str(e)}")
-            return None
-            
-    def _extract_forward_citations(self, df: pd.DataFrame, company: str) -> pd.DataFrame:
-        """Extract and format forward citations from company data"""
-        citation_data = []
-        
-        for _, row in df.iterrows():
-            # Handle potential NaN values
-            forward_numbers = str(row['forward_cited_numbers'])
-            forward_dates = str(row['forward_cited_dates'])
-            
-            if pd.notna(forward_numbers) and forward_numbers.strip():
-                numbers = forward_numbers.split(', ')
-                dates = forward_dates.split(', ')
+            return df[required_cols]
                 
-                # Match citations with dates
-                for cited_num, cited_date in zip(numbers, dates):
-                    if cited_num.strip():  # Ensure non-empty citation
-                        citation_data.append({
-                            'focal_patent': row['citing_patent_id'],
-                            'citing_patent': cited_num.strip(),
-                            'citation_date': cited_date.strip(),
-                            'company_name': company
-                        })
+        except Exception as e:
+            self.logger.error(f"Failed to process {file_path}: {str(e)}")
+            return None
+
+    def process_company(self, company: str) -> bool:
+        """Process all citation files for a company."""
+        self.logger.info(f"Processing {company}")
         
-        citations_df = pd.DataFrame(citation_data)
-        return citations_df
+        # Get citation files for the company
+        files = self._get_citation_files(company)
+            
+        if not files:
+            self.logger.warning(f"No citation files found for {company}")
+            return False
+            
+        # Process each file
+        dfs = []
+        for file in files:
+            df = self.process_citation_file(file)
+            if df is not None:
+                dfs.append(df)
+                self.logger.info(f"Successfully processed {file.name}: {len(df)} rows")
+        
+        if not dfs:
+            self.logger.error(f"No valid citation data found for {company}")
+            return False
+            
+        # Combine and save
+        combined_df = pd.concat(dfs, ignore_index=True)
+        output_file = self.base_path / company / f"{company}_merged_forward_citations.parquet"
+        combined_df.to_parquet(output_file, index=False)
+        
+        self.logger.info(f"Successfully processed {company}: {len(combined_df)} total citations")
+        return True
 
 def main():
-    """Main execution function"""
-    # Load schema
-    schema_path = Path('workflow_schema_cleaned.json')
-    if not schema_path.exists():
-        raise FileNotFoundError("Cleaned schema file not found")
-        
-    # Initialize processor
-    processor = ForwardCitationProcessor(schema_path)
+    processor = ForwardCitationProcessor()
+    companies = processor.get_companies()
     
-    # Process each company
-    companies = processor.schema['config']['companies']
+    print(f"Processing {len(companies)} companies...")
+    successful = []
+    failed = []
     
-    # Setup progress tracking
-    pbar = tqdm(companies, desc="Processing Companies", unit="company")
-    stats = {'successful': [], 'failed': []}
+    for company in tqdm(companies):
+        if processor.process_company(company):
+            successful.append(company)
+            print(f"Successfully processed {company}")
+        else:
+            failed.append(company)
+            print(f"Failed to process {company}")
     
-    for company in pbar:
-        pbar.set_description(f"Processing {company}")
-        
-        try:
-            citations_df = processor.process_company_citations(company)
-            
-            if citations_df is not None:
-                stats['successful'].append(company)
-                pbar.set_postfix(status="Success")
-            else:
-                stats['failed'].append(company)
-                pbar.set_postfix(status="Failed")
-                
-        except Exception as e:
-            processor.logger.error(f"Failed to process {company}: {str(e)}")
-            stats['failed'].append(company)
-            pbar.set_postfix(status="Error")
-            continue
-    
-    # Print summary
-    print("\nProcessing Summary")
+    print(f"\nProcessing Summary")
     print("=" * 50)
-    print(f"Successfully processed: {len(stats['successful'])} companies")
-    print(f"Failed to process: {len(stats['failed'])} companies")
+    print(f"Successfully processed: {len(successful)} companies")
+    print(f"Failed to process: {len(failed)} companies")
     
-    if stats['failed']:
+    if failed:
         print("\nFailed companies:")
-        for company in stats['failed']:
+        for company in failed:
             print(f"- {company}")
 
 if __name__ == "__main__":

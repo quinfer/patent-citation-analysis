@@ -1,0 +1,48 @@
+Data Quality Report for immersion
+Generated on: 2025-01-31 17:36:34.620372
+--------------------------------------------------
+
+1. Basic Statistics:
+Total Rows: 1154
+Duplicate Rows: 0
+Duplicate Rate: 0.00%
+
+2. Null Values:
+citing_patent_id: 0 (0.00%)
+citing_auth: 0 (0.00%)
+citing_number: 0 (0.00%)
+citing_date: 0 (0.00%)
+patent_title: 0 (0.00%)
+abstract_truncated: 0 (0.00%)
+ipc_code: 0 (0.00%)
+backward_cited_numbers: 20 (1.73%)
+forward_cited_numbers: 289 (25.04%)
+backward_cited_dates: 20 (1.73%)
+forward_cited_dates: 289 (25.04%)
+backward_citation_count: 0 (0.00%)
+forward_citation_count: 0 (0.00%)
+application_id: 0 (0.00%)
+application_number: 0 (0.00%)
+company_name: 0 (0.00%)
+person_standardized_name: 0 (0.00%)
+psn_sector: 0 (0.00%)
+person_address: 0 (0.00%)
+apply_date: 0 (0.00%)
+granted: 0 (0.00%)
+granted_date: 3 (0.26%)
+grant_lag_days: 3 (0.26%)
+
+3. Invalid Dates:
+
+4. Invalid Numbers:
+forward_citation_count: 0 (0.00%)
+
+5. Data Ranges:
+forward_citation_count: 0 to 1655
+
+6. Outliers:
+forward_citation_count: 164 outliers (14.21%)
+Sample outliers: [71, 150, 170, 118, 91]
+
+7. Unique Values:
+citing_patent_id: 1154 (100.00%)

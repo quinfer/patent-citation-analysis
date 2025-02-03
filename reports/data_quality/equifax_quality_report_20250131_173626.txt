@@ -1,0 +1,48 @@
+Data Quality Report for equifax
+Generated on: 2025-01-31 17:36:26.340310
+--------------------------------------------------
+
+1. Basic Statistics:
+Total Rows: 125
+Duplicate Rows: 0
+Duplicate Rate: 0.00%
+
+2. Null Values:
+citing_patent_id: 0 (0.00%)
+citing_auth: 0 (0.00%)
+citing_number: 0 (0.00%)
+citing_date: 0 (0.00%)
+patent_title: 0 (0.00%)
+abstract_truncated: 0 (0.00%)
+ipc_code: 0 (0.00%)
+backward_cited_numbers: 3 (2.40%)
+forward_cited_numbers: 28 (22.40%)
+backward_cited_dates: 3 (2.40%)
+forward_cited_dates: 28 (22.40%)
+backward_citation_count: 0 (0.00%)
+forward_citation_count: 0 (0.00%)
+application_id: 0 (0.00%)
+application_number: 0 (0.00%)
+company_name: 0 (0.00%)
+person_standardized_name: 0 (0.00%)
+psn_sector: 0 (0.00%)
+person_address: 0 (0.00%)
+apply_date: 0 (0.00%)
+granted: 0 (0.00%)
+granted_date: 0 (0.00%)
+grant_lag_days: 0 (0.00%)
+
+3. Invalid Dates:
+
+4. Invalid Numbers:
+forward_citation_count: 0 (0.00%)
+
+5. Data Ranges:
+forward_citation_count: 0 to 70
+
+6. Outliers:
+forward_citation_count: 11 outliers (8.80%)
+Sample outliers: [34, 59, 55, 61, 56]
+
+7. Unique Values:
+citing_patent_id: 125 (100.00%)

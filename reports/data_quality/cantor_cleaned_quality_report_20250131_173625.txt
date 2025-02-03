@@ -1,0 +1,49 @@
+Data Quality Report for cantor_cleaned
+Generated on: 2025-01-31 17:36:25.008570
+--------------------------------------------------
+
+1. Basic Statistics:
+Total Rows: 85
+Duplicate Rows: 0
+Duplicate Rate: 0.00%
+
+2. Null Values:
+citing_patent_id: 0 (0.00%)
+citing_auth: 0 (0.00%)
+citing_number: 0 (0.00%)
+citing_date: 0 (0.00%)
+patent_title: 0 (0.00%)
+abstract_truncated: 0 (0.00%)
+ipc_code: 85 (100.00%)
+backward_cited_numbers: 0 (0.00%)
+forward_cited_numbers: 0 (0.00%)
+backward_cited_dates: 0 (0.00%)
+forward_cited_dates: 0 (0.00%)
+backward_citation_count: 0 (0.00%)
+forward_citation_count: 0 (0.00%)
+application_id: 0 (0.00%)
+application_number: 0 (0.00%)
+company_name: 0 (0.00%)
+person_standardized_name: 0 (0.00%)
+psn_sector: 0 (0.00%)
+person_address: 0 (0.00%)
+apply_date: 0 (0.00%)
+granted: 0 (0.00%)
+granted_date: 0 (0.00%)
+grant_lag_days: 0 (0.00%)
+ipc_section: 85 (100.00%)
+
+3. Invalid Dates:
+
+4. Invalid Numbers:
+forward_citation_count: 0 (0.00%)
+
+5. Data Ranges:
+forward_citation_count: 0 to 77
+
+6. Outliers:
+forward_citation_count: 14 outliers (16.47%)
+Sample outliers: [61, 50, 46, 51, 53]
+
+7. Unique Values:
+citing_patent_id: 85 (100.00%)

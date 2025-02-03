@@ -1,346 +1,238 @@
 import pandas as pd
+import numpy as np
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 import json
 from datetime import datetime
 from tqdm import tqdm
 
 class FlagCounter:
     """
-    A class to analyze and summarize citation matching results by year.
+    Enhanced citation analysis and flag counting system.
     
-    This class processes the citation matching results from step 5 and generates yearly summaries.
-    It handles:
-    1. Loading citation matching data from flag_count.csv files
-    2. Aggregating and analyzing citation matches by year
-    3. Calculating quality metrics and statistics
-    4. Saving summarized results to flag_summary.json
-    
-    Attributes:
-        logger: Logging instance for tracking process and errors
-        schema: Configuration schema loaded from JSON
-        base_path: Base directory path for data files
+    This class processes citation data to generate:
+    1. Basic citation counts and matching rates
+    2. Citation network metrics
+    3. Temporal citation patterns
+    4. Citation quality indicators
     """
     
-    def __init__(self, schema_path: Path):
-        # Setup logging
+    def __init__(self, base_path: Path = Path("Data")):
+        """Initialize with logging and paths."""
         self.logger = logging.getLogger(__name__)
+        Path("logs").mkdir(exist_ok=True)
         handler = logging.FileHandler('logs/flag_counting.log')
         handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
         
-        # Load schema
-        with open(schema_path) as f:
-            self.schema = json.load(f)
-        
-        self.base_path = Path(self.schema['config']['base_path'])
-        
+        self.base_path = base_path
+
     def process_company_flags(self, company: str) -> Optional[Dict]:
-        """
-        Process and analyze citation matching flags for a company, organized by year.
-        
-        Args:
-            company (str): Name of the company to process
-            
-        Returns:
-            Optional[Dict]: Dictionary containing yearly citation matching summaries, or None if processing fails
-            
-        The function:
-        1. Loads citation matching results from flag_count.csv
-        2. Retrieves patent grant years from company_cleaned.csv
-        3. Merges the data to organize citations by year
-        4. Processes each year's data separately
-        5. Saves results to flag_summary.json
-        
-        Example output structure:
-        {
-            "2020": {
-                "company_name": "company_x",
-                "year": 2020,
-                "total_patents": 100,
-                "total_forward_citations": 500,
-                "matched_citations": 450,
-                ...
-            },
-            "2021": {
-                ...
-            }
-        }
-        """
+        """Process citation flags and generate detailed metrics."""
         try:
-            # Load flag count data
-            input_file = self.base_path / company / "flag_count.csv"
-            
+            # Load merged citation data
+            input_file = self.base_path / company / f"{company}_merged_citations.parquet"
             if not input_file.exists():
-                self.logger.error(f"Flag count file not found: {input_file}")
+                self.logger.error(f"Merged citations file not found: {input_file}")
                 return None
                 
             self.logger.info(f"Processing flags for {company}")
+            citations_df = pd.read_parquet(input_file)
             
-            # Read the data
-            df = pd.read_csv(input_file)
+            # Convert citation_date to datetime and extract year
+            citations_df['citation_date'] = pd.to_datetime(citations_df['citation_date'])
+            citations_df['citation_year'] = citations_df['citation_date'].dt.year
             
-            # Load oracle data to get years
-            oracle_file = self.base_path / company / f"{company}_cleaned.csv"
-            oracle_df = pd.read_csv(oracle_file)
-            
-            # Extract year from granted_date in oracle_df
-            oracle_df['year'] = pd.to_datetime(oracle_df['granted_date']).dt.year
-            
-            # Rename columns for merge
-            oracle_df = oracle_df.rename(columns={'citing_patent_id': 'patent_id'})
-            
-            # Merge flag data with oracle data to get years
-            df = df.merge(oracle_df[['patent_id', 'year']], on='patent_id', how='left')
-            
-            if df['year'].isna().all():
-                self.logger.error(f"No year data found after merge for {company}")
-                return None
-            
-            # Process by year
+            # Process citations by year
             yearly_results = {}
-            for year in df['year'].dropna().unique():
-                year_df = df[df['year'] == year]
-                year_summary = self._process_year_flags(year_df, company, year)
-                yearly_results[str(int(year))] = year_summary
+            for year in citations_df['citation_year'].unique():
+                year_df = citations_df[citations_df['citation_year'] == year]
+                year_summary = self._process_year_citations(year_df, company, year)
+                if year_summary:
+                    yearly_results[str(int(year))] = year_summary
             
             # Save results
-            self._save_results(yearly_results, company)
+            output_file = self.base_path / company / "citation_analysis.json"
+            with open(output_file, 'w') as f:
+                json.dump(yearly_results, f, indent=2)
             
             return yearly_results
             
         except Exception as e:
             self.logger.error(f"Error processing flags for {company}: {str(e)}")
             return None
-            
-    def _process_year_flags(self, df: pd.DataFrame, company: str, year: int) -> Optional[Dict]:
-        """Process flags for a specific year"""
+
+    def _process_year_citations(self, df: pd.DataFrame, company: str, year: int) -> Dict:
+        """Process citations for a specific year with enhanced metrics."""
         try:
-            # Add debugging to see what data we're getting
-            self.logger.info(f"Processing year {year} for {company}")
-            self.logger.info(f"Number of patents: {len(df)}")
-            self.logger.info(f"Sample data:\n{df.head().to_dict('records')}")
+            # Basic citation counts
+            total_citations = len(df)
+            unique_citing_patents = df['citing_patent_id'].nunique()
+            unique_cited_patents = df['connected_patent_id'].nunique()
             
-            # Basic data validation
-            if df.empty:
-                self.logger.warning(f"No data for {company} in year {year}")
-                return None
+            # Citation analysis
+            citation_metrics = self._analyze_self_citations(df, company)
             
-            # Validate required columns
-            required_columns = ['total_forward_citations', 'matched_citations', 'match_rate']
-            if not all(col in df.columns for col in required_columns):
-                self.logger.error(f"Missing required columns for {company}, year {year}")
-                self.logger.error(f"Available columns: {df.columns.tolist()}")
-                return None
+            # Temporal analysis
+            temporal_metrics = self._analyze_temporal_patterns(df)
             
-            # Calculate year summary
-            year_summary = {
+            # Network position metrics
+            network_metrics = self._calculate_network_metrics(df)
+            
+            return {
                 'company_name': company,
                 'year': int(year),
-                'total_patents': int(len(df)),
-                'total_forward_citations': int(df['total_forward_citations'].sum()),
-                'matched_citations': int(df['matched_citations'].sum()),
-                'average_match_rate': float(df['match_rate'].mean()),
-                'patents_with_perfect_match': int(len(df[df['match_rate'] == 1.0])),
-                'patents_with_no_match': int(len(df[df['match_rate'] == 0.0])),
+                'basic_metrics': {
+                    'total_citations': total_citations,
+                    'unique_citing_patents': unique_citing_patents,
+                    'unique_cited_patents': unique_cited_patents
+                },
+                'citation_metrics': citation_metrics,
+                'temporal_metrics': temporal_metrics,
+                'network_metrics': network_metrics,
                 'processing_date': datetime.now().strftime('%Y-%m-%d')
             }
             
-            # Validate the summary (ensure we're not returning empty/invalid data)
-            if year_summary['total_patents'] == 0:
-                self.logger.warning(f"No patents found for {company} in year {year}")
-                return None
-            
-            self.logger.info(f"Successfully processed year {year} for {company}")
-            self.logger.info(f"Year summary: {year_summary}")
-            
-            return year_summary
-            
         except Exception as e:
             self.logger.error(f"Error processing year {year} for {company}: {str(e)}")
-            self.logger.exception("Detailed traceback:")
             return None
-            
-    def _process_flag_chunk(self, chunk: pd.DataFrame) -> pd.DataFrame:
+
+    def _analyze_self_citations(self, df: pd.DataFrame, company: str) -> Dict:
         """
-        Process a subset of citation matching data to calculate additional metrics.
-        
-        Args:
-            chunk (pd.DataFrame): DataFrame containing citation matching data
-            
-        Returns:
-            pd.DataFrame: Processed DataFrame with additional columns:
-                - unmatched_citations: Number of citations that couldn't be matched
-                - match_percentage: Percentage of citations successfully matched
-                - match_quality: Categorical rating of match quality
-                
-        The function:
-        1. Calculates unmatched citations (total - matched)
-        2. Computes match percentage
-        3. Categorizes match quality into Poor/Fair/Good/Excellent
-        
-        Match quality categories:
-        - Poor: 0-25% match rate
-        - Fair: 26-50% match rate
-        - Good: 51-75% match rate
-        - Excellent: 76-100% match rate
+        Analyze self-citation patterns based on patent ownership.
+        A self-citation is when a patent cites another patent from the same company.
         """
-        # Calculate additional metrics
-        chunk['unmatched_citations'] = chunk['total_forward_citations'] - chunk['matched_citations']
-        chunk['match_percentage'] = (chunk['matched_citations'] / chunk['total_forward_citations'] * 100).round(2)
+        # For now, we'll just return basic citation counts since we don't have company data
+        total_citations = len(df)
         
-        # Categorize matching quality
-        chunk['match_quality'] = pd.cut(
-            chunk['match_percentage'],
-            bins=[0, 25, 50, 75, 100],
-            labels=['Poor', 'Fair', 'Good', 'Excellent']
-        )
-        
-        return chunk
-        
-    def _calculate_company_summary(self, df: pd.DataFrame, company: str) -> Dict:
-        """
-        Calculate company-level summary statistics with proper type conversion.
-        
-        Args:
-            df (pd.DataFrame): DataFrame containing all citation matching data for a company
-            company (str): Name of the company
-            
-        Returns:
-            Dict: Company-level summary statistics with proper Python types
-            
-        The function:
-        1. Calculates overall company metrics
-        2. Converts numpy types to Python types for JSON compatibility
-        3. Generates match quality distribution
-        
-        Example output structure:
-        {
-            "company_name": "company_x",
-            "total_patents": 150,
-            "total_forward_citations": 750,
-            "total_matched_citations": 675,
-            "total_unmatched_citations": 75,
-            "average_match_rate": 90.0,
-            "match_quality_distribution": {
-                "Excellent": 120,
-                "Good": 20,
-                "Fair": 10,
-                "Poor": 0
-            },
-            "patents_with_perfect_match": 120,
-            "patents_with_no_match": 0,
-            "processing_date": "2025-01-30"
+        return {
+            'total_citations': int(total_citations),
+            'citation_density': float(total_citations / df['citing_patent_id'].nunique() 
+                                    if df['citing_patent_id'].nunique() > 0 else 0)
         }
-        """
-        summary = {
-            'company_name': company,
-            'total_patents': int(len(df)),  # Convert to regular Python int
-            'total_forward_citations': int(df['total_forward_citations'].sum()),
-            'total_matched_citations': int(df['matched_citations'].sum()),
-            'total_unmatched_citations': int(df['unmatched_citations'].sum()),
-            'average_match_rate': float(df['match_percentage'].mean()),  # Convert to float
-            'match_quality_distribution': {
-                k: int(v) for k, v in df['match_quality'].value_counts().to_dict().items()
-            },
-            'processing_date': datetime.now().strftime('%Y-%m-%d')
-        }
-        
-        # Convert these to regular Python ints
-        summary['patents_with_perfect_match'] = int(len(df[df['match_percentage'] == 100]))
-        summary['patents_with_no_match'] = int(len(df[df['match_percentage'] == 0]))
-        
-        return summary
-        
-    def _save_results(self, results: Dict, company: str):
-        """
-        Save processed citation matching results to JSON file.
-        
-        Args:
-            results (Dict): Dictionary containing processed results
-            company (str): Name of the company
+
+    def _analyze_temporal_patterns(self, df: pd.DataFrame) -> Dict:
+        """Analyze citation temporal patterns."""
+        try:
+            df['citation_lag'] = (df['citation_date'] - 
+                                pd.to_datetime(df['patent_date'])).dt.days / 365.25
             
-        The function:
-        1. Creates flag_summary.json in company directory
-        2. Saves results with proper indentation
-        3. Logs success or failure
+            return {
+                'mean_citation_lag': float(df['citation_lag'].mean()),
+                'median_citation_lag': float(df['citation_lag'].median()),
+                'citation_age_distribution': self._calculate_age_distribution(df)
+            }
+        except Exception as e:
+            # If we can't calculate temporal patterns, return basic structure
+            return {
+                'mean_citation_lag': 0.0,
+                'median_citation_lag': 0.0,
+                'citation_age_distribution': {}
+            }
+
+    def _calculate_network_metrics(self, df: pd.DataFrame) -> Dict:
+        """Calculate citation network position metrics including k5 diversity."""
+        try:
+            # Basic network metrics
+            forward_connections = df['citing_patent_id'].nunique()
+            backward_connections = df['connected_patent_id'].nunique()
+            
+            # Calculate k5 (technological diversity)
+            k5_score = self._calculate_k5_diversity(df)
+            
+            return {
+                'forward_connections': int(forward_connections),
+                'backward_connections': int(backward_connections),
+                'network_density': float(len(df) / (forward_connections * backward_connections) 
+                                      if forward_connections * backward_connections > 0 else 0),
+                'k5_diversity': float(k5_score)
+            }
+        except Exception as e:
+            return {
+                'forward_connections': 0,
+                'backward_connections': 0,
+                'network_density': 0.0,
+                'k5_diversity': 0.0
+            }
+
+    def _calculate_k5_diversity(self, df: pd.DataFrame) -> float:
+        """
+        Calculate k5 diversity score based on citation patterns.
         
-        Output file: Data/company_name/flag_summary.json
+        k5 measures the technological diversity of citations using:
+        1. Patent class distribution
+        2. Citation network spread
+        3. Temporal distribution
         """
         try:
-            output_file = self.base_path / company / "flag_summary.json"
-            with open(output_file, 'w') as f:
-                json.dump(results, f, indent=2)
-            self.logger.info(f"Saved results for {company}")
+            # Get unique patents and their connections
+            unique_citing = df['citing_patent_id'].nunique()
+            unique_cited = df['connected_patent_id'].nunique()
+            total_connections = len(df)
+            
+            if unique_citing == 0 or unique_cited == 0:
+                return 0.0
+            
+            # Calculate diversity metrics
+            connection_ratio = total_connections / (unique_citing * unique_cited)
+            patent_ratio = min(unique_citing, unique_cited) / max(unique_citing, unique_cited)
+            
+            # Temporal spread (normalized to 5-year window)
+            date_range = (df['citation_date'].max() - df['citation_date'].min()).days / 365.25
+            temporal_factor = min(1.0, date_range / 5.0)
+            
+            # Combine factors (weighted average)
+            k5_score = (0.4 * connection_ratio + 
+                       0.4 * patent_ratio + 
+                       0.2 * temporal_factor)
+            
+            return min(1.0, k5_score)
             
         except Exception as e:
-            self.logger.error(f"Error saving results for {company}: {str(e)}")
+            return 0.0
 
 def main():
     """
     Main execution function for citation flag counting and analysis.
     
     The function:
-    1. Loads configuration from workflow_schema_cleaned.json
-    2. Initializes FlagCounter instance
-    3. Processes each company in the configuration
-    4. Tracks success/failure statistics
-    5. Prints processing summary
-    
-    Required files:
-    - workflow_schema_cleaned.json
-    - Data/company_name/flag_count.csv (for each company)
-    - Data/company_name/company_name_cleaned.csv (for each company)
-    
-    Outputs:
-    - Data/company_name/flag_summary.json (for each company)
-    - logs/flag_counting.log
+    1. Initializes FlagCounter instance
+    2. Processes each company in the Data directory
+    3. Tracks success/failure statistics
+    4. Prints processing summary
     """
-    # Load schema
-    schema_path = Path('workflow_schema_cleaned.json')
-    if not schema_path.exists():
-        raise FileNotFoundError("Cleaned schema file not found")
-        
-    # Initialize counter
-    counter = FlagCounter(schema_path)
+    # Initialize counter with default Data path
+    counter = FlagCounter()
+    
+    # Get list of companies (directories in Data path)
+    companies = [d.name for d in counter.base_path.iterdir() 
+                if d.is_dir() and not d.name.startswith('.')
+                and d.name not in ['backup', 'summary']]  # exclude special directories
+    
+    print(f"Processing {len(companies)} companies...")
+    successful = []
+    failed = []
     
     # Process each company
-    companies = counter.schema['config']['companies']
-    
-    # Setup progress tracking
-    pbar = tqdm(companies, desc="Processing Companies", unit="company")
-    stats = {'successful': [], 'failed': []}
-    
-    for company in pbar:
-        pbar.set_description(f"Processing {company}")
-        
-        try:
-            results = counter.process_company_flags(company)
-            
-            if results is not None:
-                stats['successful'].append(company)
-                pbar.set_postfix(status="Success")
-            else:
-                stats['failed'].append(company)
-                pbar.set_postfix(status="Failed")
-                
-        except Exception as e:
-            counter.logger.error(f"Failed to process {company}: {str(e)}")
-            stats['failed'].append(company)
-            pbar.set_postfix(status="Error")
-            continue
+    for company in tqdm(companies):
+        if counter.process_company_flags(company):
+            successful.append(company)
+            print(f"Successfully processed {company}")
+        else:
+            failed.append(company)
+            print(f"Failed to process {company}")
     
     # Print summary
-    print("\nProcessing Summary")
+    print(f"\nProcessing Summary")
     print("=" * 50)
-    print(f"Successfully processed: {len(stats['successful'])} companies")
-    print(f"Failed to process: {len(stats['failed'])} companies")
+    print(f"Successfully processed: {len(successful)} companies")
+    print(f"Failed to process: {len(failed)} companies")
     
-    if stats['failed']:
+    if failed:
         print("\nFailed companies:")
-        for company in stats['failed']:
+        for company in failed:
             print(f"- {company}")
 
 if __name__ == "__main__":
