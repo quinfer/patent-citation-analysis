@@ -1,148 +1,133 @@
 # Output File Formats
 
-## Overview
-This document describes the output formats for each stage of the patent analysis pipeline. Each step generates specific files with standardized structures.
+## 1. Panel Dataset Structure
+### Location: `Data/summary/disruption_panel.{csv,parquet}`
 
-## 1. Pure F Score Outputs
-### Location: `Data/{company_name}/pure_f_summary.json`
-```json
-{
-  "2023": {
-    "company_name": "company_name",
-    "year": 2023,
-    "total_citations": 100,
-    "matched_citations": 80,
-    "pure_f_score": 0.8,
-    "quality_metrics": {
-      "match_rate": 0.75,
-      "perfect_matches": 60,
-      "no_matches": 10
-    },
-    "total_patents": 50,
-    "processing_date": "2025-01-31"
-  }
-}
-```
+#### Core Fields
+| Field | Type | Description | Range |
+|-------|------|-------------|--------|
+| company_name | string | Company identifier | - |
+| year | int | Year of observation | 1836-2023 |
 
-## 2. Disruption Index Outputs
-### Location: `Data/{company_name}/di_summary.json`
-```json
-{
-  "company_name": "company_name",
-  "yearly_di": {
-    "2023": {
-      "disruption_index": 0.65,
-      "components": {
-        "pure_f_score": 0.8,
-        "quality_factor": 0.85,
-        "impact_factor": 0.95
-      },
-      "metrics": {
-        "total_patents": 50,
-        "total_citations": 100,
-        "citations_per_patent": 2.0,
-        "matched_citations_per_patent": 1.6
-      },
-      "quality_distribution": {
-        "high_quality_matches": 60,
-        "medium_quality_matches": 30,
-        "low_quality_matches": 10,
-        "poor_quality_matches": 0
-      }
-    }
-  },
-  "processing_date": "2025-01-31"
-}
-```
+#### Disruption Measures
+| Field | Type | Description | Range |
+|-------|------|-------------|--------|
+| disruption_index | float | Traditional DI (j5+i5+k5)/3 | [0,1] |
+| modified_disruption_index | float | mDI = j5*(1+i5)*(1+k5) | [0,4] |
 
-## 3. Panel Dataset
-### Location: `Data/disruption_index_panel.csv`
+#### Component Scores
+| Field | Type | Description | Range |
+|-------|------|-------------|--------|
+| j5_score | float | Forward citation impact | [0,1] |
+| i5_score | float | Development speed | [0,1] |
+| k5_score | float | Citation diversity | [0,1] |
+
+#### Network Metrics
+| Field | Type | Description | Range |
+|-------|------|-------------|--------|
+| pure_f_score | float | Citation matching quality | [0,∞) |
+| total_citations | int | Number of forward citations | ≥0 |
+| network_density | float | Citation network density | [0,∞) |
+
+### Example Data
 ```csv
-company_name,year,disruption_index,pure_f_score,quality_factor,impact_factor,total_patents,total_citations,citations_per_patent,matched_citations_per_patent
-company1,2020,0.65,0.80,0.85,0.95,100,1000,10.0,8.0
-company1,2021,0.70,0.82,0.87,0.96,120,1200,10.0,8.2
-company2,2020,0.55,0.75,0.80,0.92,80,800,10.0,7.5
+company_name,year,disruption_index,modified_disruption_index,j5_score,i5_score,k5_score,pure_f_score,total_citations,network_density
+abbott,1841,0.667,2.000,1.000,0.000,1.000,9.500,37,18.500
+abbott,1861,0.600,1.800,1.000,0.000,0.800,1.000,1,1.000
 ```
 
-## 4. Summary Reports
-### Location: `Data/summary/`
+### Economic Interpretation
 
-### 4.1 Rankings Files
-#### `rankings_by_di.csv`
-```csv
-company_name,disruption_index
-company1,0.75
-company2,0.70
+#### Disruption Measures
+- **disruption_index**: Linear measure of technological disruption
+- **modified_disruption_index**: Non-linear measure capturing interaction effects
+
+#### Component Scores
+- **j5_score**: Market impact and technological influence
+- **i5_score**: Speed of knowledge development
+- **k5_score**: Breadth of technological influence
+
+#### Network Metrics
+- **pure_f_score**: Quality of knowledge transmission
+- **network_density**: Intensity of knowledge flows
+- **total_citations**: Scale of technological impact
+
+## 2. File Formats
+
+### Parquet Format
+- Primary format for analysis
+- Efficient storage and retrieval
+- Maintains data types
+- Supports partitioning
+
+### CSV Format
+- Secondary format for accessibility
+- Human-readable
+- Compatible with most tools
+- Useful for quick inspection
+
+## 3. Best Practices
+
+### Data Validation
+1. Check value ranges:
+```python
+assert df['disruption_index'].between(0, 1).all()
+assert df['modified_disruption_index'].between(0, 4).all()
+assert df['j5_score'].between(0, 1).all()
 ```
 
-#### `rankings_by_pure_f.csv`
-```csv
-company_name,pure_f_score
-company1,0.85
-company2,0.80
+### Missing Values
+- No missing values in key metrics
+- Zero values are meaningful
+- Validate temporal coverage
+
+### Temporal Considerations
+- Recent years may be incomplete
+- Citation lag effects
+- Field-specific patterns
+
+## 4. Usage Notes
+
+### Loading Data
+```python
+# Preferred method (Parquet)
+import pandas as pd
+df = pd.read_parquet('Data/summary/disruption_panel.parquet')
+
+# Alternative (CSV)
+df = pd.read_csv('Data/summary/disruption_panel.csv')
 ```
 
-#### `rankings_by_citations.csv`
-```csv
-company_name,citations_per_patent
-company1,12.5
-company2,10.2
+### Basic Analysis
+```python
+# Summary statistics
+summary = df.groupby('company_name').agg({
+    'disruption_index': ['mean', 'std'],
+    'modified_disruption_index': ['mean', 'std'],
+    'total_citations': 'sum'
+})
 ```
 
-### 4.2 Summary Statistics
-#### `summary_statistics.json`
-```json
-{
-  "total_companies": 100,
-  "total_patents": 50000,
-  "total_citations": 500000,
-  "average_di": 0.65,
-  "median_di": 0.63,
-  "average_pure_f": 0.75,
-  "median_pure_f": 0.72,
-  "generation_date": "2025-01-31"
-}
+### Time Series Analysis
+```python
+# Yearly trends
+yearly = df.groupby('year').agg({
+    'disruption_index': 'mean',
+    'modified_disruption_index': 'mean'
+}).reset_index()
 ```
 
-## 5. Visualizations
-### Location: `Data/summary/`
+## 5. Field-Specific Considerations
 
-### 5.1 Distribution Plots
-- `di_distribution.png`: Histogram of Disruption Index scores
-- `pure_f_vs_di.png`: Scatter plot of Pure F scores vs Disruption Index
-- `top_companies_di.png`: Bar chart of top 20 companies by DI
+### Technology Fields
+- Chemical
+- Computers & Communications
+- Drugs & Medical
+- Electrical & Electronic
+- Mechanical
+- Others
 
-## Data Field Definitions
-
-### Pure F Score Metrics
-- `total_citations`: Total forward citations received
-- `matched_citations`: Successfully matched citations
-- `pure_f_score`: Ratio of matched to total citations (0-1)
-- `match_rate`: Quality of citation matches (0-1)
-- `perfect_matches`: Citations with exact matches
-- `no_matches`: Citations without matches
-
-### Disruption Index Components
-- `disruption_index`: Final DI score (0-1)
-- `quality_factor`: Weighted score of match quality (0-1)
-- `impact_factor`: Citation impact score (0-1)
-- `citations_per_patent`: Average citations per patent
-
-### Quality Distribution Categories
-- `high_quality_matches`: Perfect citation matches
-- `medium_quality_matches`: Partial matches
-- `low_quality_matches`: Poor matches
-- `poor_quality_matches`: Failed matches
-
-## File Naming Conventions
-- All JSON files use snake_case naming
-- CSV files use lowercase with underscores
-- Dates format: YYYY-MM-DD
-- Company names are standardized lowercase with underscores
-
-## Best Practices
-1. Always verify file integrity after generation
-2. Check for expected fields in output files
-3. Monitor file sizes for anomalies
-4. Validate date ranges in panel data
-5. Ensure consistent company naming across files
+### Field-Specific Metrics
+- Baseline disruption levels
+- Citation patterns
+- Network density norms
